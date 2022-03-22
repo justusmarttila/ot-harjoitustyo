@@ -1,0 +1,96 @@
+commit afaa5e302e931a9089a5d1bd45b5640c07e61e17
+Author: justusmarttila <justusmarttila@helsinki.fi>
+Date:   Mon Mar 21 20:22:07 2022 +0200
+
+    poisto file1 ja muutos file22
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 21998ccc8f49e7c459f275104b2b63374060b46b
+Author: justusmarttila <justusmarttila@helsinki.fi>
+Date:   Mon Mar 21 20:17:26 2022 +0200
+
+    tiedostoja
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 36afc8576428f6dc564da1bef0cda97b105a4298
+Author: justusmarttila <justusmarttila@helsinki.fi>
+Date:   Mon Mar 21 20:04:32 2022 +0200
+
+    muutoksia
+
+ eka.txt    | 2 +-
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 09e1ebec245cc94983c00779c364a083a8419dec
+Author: justusmarttila <justusmarttila@helsinki.fi>
+Date:   Mon Mar 21 20:02:03 2022 +0200
+
+    tiedosto nimenmuutos ja toinen poisto
+
+ tiedosto.txt => eka.txt | 0
+ toinen.txt              | 1 -
+ 2 files changed, 1 deletion(-)
+
+commit 5b5c32de8df0cb834283d69b23c8e15e7542233c
+Author: justusmarttila <justusmarttila@helsinki.fi>
+Date:   Mon Mar 21 19:56:09 2022 +0200
+
+    poisto ja lisäys
+
+ tiedosto.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 6ca8fa5c692d5e567dba1adada5b85d9a6801b48
+Author: justusmarttila <justusmarttila@helsinki.fi>
+Date:   Mon Mar 21 19:54:55 2022 +0200
+
+    poisto ja lisäys
+
+ tiedosto.txt | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit f163c9aae9412ac00026b3b984c27a7aba24a655
+Author: justusmarttila <justusmarttila@helsinki.fi>
+Date:   Mon Mar 21 18:54:55 2022 +0200
+
+    muutos kolmas ja toinen
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit f2b06a8f2986689bc1227f1e3d164efd451d7aee
+Author: justusmarttila <justusmarttila@helsinki.fi>
+Date:   Mon Mar 21 18:53:34 2022 +0200
+
+    kolmas lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1a50a7f48d0de5a8f45f1c98be1d150c3725a91b
+Author: justusmarttila <justusmarttila@helsinki.fi>
+Date:   Mon Mar 21 18:50:20 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 7c75c9ac90a099bd12cd5e89388ab9fe7dcb2a9b
+Author: justusmarttila <justusmarttila@helsinki.fi>
+Date:   Mon Mar 21 18:47:06 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
