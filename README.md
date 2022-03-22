@@ -5,4 +5,5 @@
 
 [komentorivi.txt](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
+### Viikko 2
 *nämä ovat säännöt* etsi **miinat** ja muut kohdat.
