@@ -8,5 +8,7 @@
 ### Viikko 2
 [vaatimusmaarittely.md](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
+[tyoaikakirjanpito.md](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+
 ### Viikko 3
 *nämä ovat säännöt* etsi **miinat** ja muut kohdat.
