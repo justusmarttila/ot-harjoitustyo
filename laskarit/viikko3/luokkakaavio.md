@@ -1,5 +1,5 @@
 ```mermaid 
-classMonopoli
+class Monopoli
     Pelilauta "*" --> "2-8" Pelaaja
     Pelilauta "2" --> "2" Noppa
     Pelilauta "*" --> "40" Ruutu
