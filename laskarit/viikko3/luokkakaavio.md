@@ -3,7 +3,7 @@ classDiagram
     Pelaaja "*" --> "2-8" Pelilauta
     Noppa "2" --> "2" Pelilauta
     Ruutu "*" --> "40" Pelilauta
-    Ruutu "*" --> Pelaaja
+    Pelaaja "*" --> Ruutu
     class Pelaaja{
         nimi
         pelinappula
