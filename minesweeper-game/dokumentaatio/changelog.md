@@ -1,3 +1,5 @@
+###Changelog
+
 ## Viikko 3
 
 - Sprite objektit luodaan board luokassa 
