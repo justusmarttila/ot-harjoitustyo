@@ -2,7 +2,7 @@ import pygame
 from image_load import image_load
 
 class Mine(pygame.sprite.Sprite):
-    def __init__(self, x=0, y=0, marked=False):
+    def __init__(self, x=0, y=0):
         super().__init__()
 
         self.picture = image_load("mine.png")
