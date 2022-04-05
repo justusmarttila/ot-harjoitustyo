@@ -1,5 +1,3 @@
-from operator import length_hint
-from turtle import width
 import pygame
 from sprites.opened_tile import OpenedTile
 from sprites.unopened_tile import UnopenedTile
@@ -32,7 +30,7 @@ class Board:
 
         for y in range(height):
             for x in range(width):
-                tile = map[y][x]
+                tile = lower_map[y][x]
                 scale_x  = x*self.tile_size
                 scale_y = y*self.tile_size
 

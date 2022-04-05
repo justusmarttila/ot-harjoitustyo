@@ -1,4 +1,7 @@
 import pygame
+import os, sys
+dir = os.path.dirname("image_load.py")
+sys.path.append(dir)
 from image_load import image_load
 
 class OpenedTile(pygame.sprite.Sprite):
@@ -6,7 +9,7 @@ class OpenedTile(pygame.sprite.Sprite):
         super().__init__()
 
         self.number = number
-        self.picture = image_load(f"tile_.{self.number}.png")
+        self.picture = image_load(f"tile_{self.number}.png")
         self.rect = self.picture.get_rect()
         self.rect.x = x
         self.rect.y = y
