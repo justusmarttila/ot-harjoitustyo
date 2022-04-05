@@ -12,7 +12,6 @@ top_board_1 = [[9]*7]*3
 
 tile_size = 50
 
-print(top_board_1)
 class TestBoard(unittest.TestCase):
     def setUp(self):
         self.board_1 = Board(lower_board_1, top_board_1, tile_size)
