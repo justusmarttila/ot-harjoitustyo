@@ -1,14 +1,29 @@
-# Ohjelmistotekniikka, harjoitustyö
-## Tehtävät
-### Viikko 1
-[gitlog.txt](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt) 
+# Miinaharava
 
-[komentorivi.txt](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+## Dokumentaatio
 
-### Viikko 2
-[vaatimusmaarittely.md](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+- [vaatimusmaarittely.md](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
-[tyoaikakirjanpito.md](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+- [tyoaikakirjanpito.md](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
-### Viikko 3
-*nämä ovat säännöt* etsi **miinat** ja muut kohdat.
+- [changelog](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/minesweeper-game/dokumentaatio/changelog.md)
+
+## Asennus
+
+1. Asenna riippuvuudet komennolla 
+
+poetry install
+
+## Komentorivitoiminnot
+
+1. Käynnistä sovellus komennolla
+
+poetry run invoke start
+
+2. Testit suoritetaan komennolla:
+
+poetry run invoke test
+
+3. Testikattavuusraportti generoidaan komennolla
+
+poetry run invoke coverage-report
