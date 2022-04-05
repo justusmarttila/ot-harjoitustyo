@@ -1,4 +1,3 @@
-from matplotlib import image
 import pygame
 from image_load import image_load
 
