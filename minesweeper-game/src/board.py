@@ -6,7 +6,10 @@ from sprites.mine import Mine
 
 class Board:
     def __init__(self, lower_map, top_map, tile_size):
+        self.top_map = top_map
+        self.lower_map = lower_map
         self.tile_size = tile_size
+
         self.zeroes = pygame.sprite.Group()
         self.ones = pygame.sprite.Group()
         self.twos = pygame.sprite.Group()
@@ -24,6 +27,15 @@ class Board:
         self._initialize_lower_layer_sprites(lower_map)
         self._initialize_top_layer_sprites(top_map)
         self._add_all_sprites()
+
+    def open_tile(self, x, y):
+        for tile in self.unopened:
+            # jos laatta on jo avattu tai merkattu
+            if tile.marked or tile.opened:
+                return
+            elif tile.rect.collidepoint(x, y):
+                tile.opened = True
+                tile.update()
 
     def _initialize_lower_layer_sprites(self, lower_map):
         width = len(lower_map[0])
