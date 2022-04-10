@@ -1,10 +1,5 @@
 from image_load import image_load
 import pygame
-import os
-import sys
-dir = os.path.dirname("image_load.py")
-sys.path.append(dir)
-
 
 class UnopenedTile(pygame.sprite.Sprite):
     def __init__(self, x=0, y=0, marked=False):

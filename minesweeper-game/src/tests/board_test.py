@@ -1,9 +1,5 @@
 from board import Board
 import unittest
-import os
-import sys
-dir = os.path.dirname("board.py")
-sys.path.append(dir)
 
 lower_board_1 = [[1, -1, 2, 1, 0, 1, -1],
                  [1,  2, -1, 1, 0, 1,  1],
