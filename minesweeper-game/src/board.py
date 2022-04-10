@@ -3,6 +3,7 @@ from sprites.opened_tile import OpenedTile
 from sprites.unopened_tile import UnopenedTile
 from sprites.mine import Mine
 
+
 class Board:
     def __init__(self, lower_map, top_map, tile_size):
         self.tile_size = tile_size
@@ -31,7 +32,7 @@ class Board:
         for y in range(height):
             for x in range(width):
                 tile = lower_map[y][x]
-                scale_x  = x*self.tile_size
+                scale_x = x*self.tile_size
                 scale_y = y*self.tile_size
 
                 if tile == 0:
@@ -54,7 +55,7 @@ class Board:
                     self.eights.add(OpenedTile(scale_x, scale_y, 8))
                 elif tile == -1:
                     self.mines.add(Mine(scale_x, scale_y))
-        
+
     def _initialize_top_layer_sprites(self, top_map):
         width = len(top_map[0])
         height = len(top_map)
@@ -71,14 +72,6 @@ class Board:
                     self.marked.add(UnopenedTile(scale_x, scale_y))
 
     def _add_all_sprites(self):
-        self.all_sprites.add(self.zeroes, self.ones, self.twos, self.threes, 
-        self.fours, self.fives, self.sixes, self.sevens, self.eights,
-        self.marked, self.mines, self.unopened)
-
-
-                
-
-
-                
-
-                
+        self.all_sprites.add(self.zeroes, self.ones, self.twos, self.threes,
+                             self.fours, self.fives, self.sixes, self.sevens, self.eights, self.mines,
+                             self.unopened, self.marked)
