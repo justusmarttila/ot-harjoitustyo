@@ -12,6 +12,7 @@ class GameLoop:
         while True:
             if self._traverse_events() == False:
                 break
+
             # kutsutaan renderer
             self._render()
 
@@ -38,6 +39,7 @@ class GameLoop:
                 # laatan avaaminen
                 if event.button == 1:
                     self._board.open_tile(mouse_x, mouse_y)
+
                 # laatan merkkaaminen
                 elif event.button == 3:
                     self._board.mark_tile(mouse_x, mouse_y)
