@@ -21,9 +21,16 @@ class GameLoop:
         # käy läpi tapahtumat
         for event in self._event_queue.get():
             if event.type == pygame.MOUSEBUTTONUP:
+                # klikkauksen koordinaatit
+                mouse_x, mouse_y = event.pos[0], event.pos[1]
+                
+                # laatan avaaminen
                 if event.button == 1:
-                    mouse_x, mouse_y = event.pos[0], event.pos[1]
                     self._board.open_tile(mouse_x, mouse_y)
+                # laatan merkkaaminen
+                elif event.button == 3:
+                    self._board.mark_tile(mouse_x, mouse_y)
+
             # ikkunan sulkeminen
             elif event.type == pygame.QUIT:
                 return False

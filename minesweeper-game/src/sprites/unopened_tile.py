@@ -14,10 +14,13 @@ class UnopenedTile(pygame.sprite.Sprite):
         self.rect.y = y
 
     def update(self):
+        # valitse merkattu kuva
         if self.marked:
             self.image = self._pictures["marked"]
+        # valitse läpinäkyvä kuva
         elif self.opened:
             self.image = self._pictures["opened"]
+        # valitse avaamaton kuva
         else:
             self.image = self._pictures["unopened"]
 

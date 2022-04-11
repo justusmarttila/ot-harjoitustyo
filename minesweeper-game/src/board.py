@@ -28,15 +28,38 @@ class Board:
         self._initialize_top_layer_sprites(top_map)
         self._add_all_sprites()
 
+    # laatan avaaminen
     def open_tile(self, x, y):
         for tile in self.unopened:
-            # jos laatta on jo avattu tai merkattu
-            if tile.marked or tile.opened:
-                return
-            elif tile.rect.collidepoint(x, y):
+            if tile.rect.collidepoint(x, y):
                 tile.opened = True
                 tile.update()
+                self.unopened.remove(tile)
 
+    # miinan merkkaus
+    def mark_tile(self, x, y):
+        if self.unmark_tile(x, y):
+            return
+
+        # merkkaamattoman merkkaus
+        for tile in self.unopened:
+            if tile.rect.collidepoint(x, y):
+                tile.marked = True
+                tile.update()
+                self.unopened.remove(tile)
+                self.marked.add(tile)
+        
+    # jos miina on jo merkattu voidaan myös merkkaus poistaa
+    def unmark_tile(self, x, y):
+        for tile in self.marked:
+            if tile.rect.collidepoint(x, y):
+                tile.marked = False
+                tile.update()
+                self.marked.remove(tile)
+                self.unopened.add(tile)
+                return True
+
+    # alustetaan alemman matriisin spritet
     def _initialize_lower_layer_sprites(self, lower_map):
         width = len(lower_map[0])
         height = len(lower_map)
@@ -68,6 +91,7 @@ class Board:
                 elif tile == -1:
                     self.mines.add(Mine(scale_x, scale_y))
 
+    # alustetaan ylemmän matriisin spritet
     def _initialize_top_layer_sprites(self, top_map):
         width = len(top_map[0])
         height = len(top_map)
@@ -83,6 +107,7 @@ class Board:
                 elif tile == 10:
                     self.marked.add(UnopenedTile(scale_x, scale_y))
 
+    # lisätään kaikki spritet listaan, jotta piirtäminen näytölle helpompaa
     def _add_all_sprites(self):
         self.all_sprites.add(self.zeroes, self.ones, self.twos, self.threes,
                              self.fours, self.fives, self.sixes, self.sevens, self.eights, self.mines,
