@@ -10,6 +10,7 @@ class Board:
         self.lower_map = lower_map
         self.tile_size = tile_size
 
+        # alemman matriisin spritet
         self.zeroes = pygame.sprite.Group()
         self.ones = pygame.sprite.Group()
         self.twos = pygame.sprite.Group()
@@ -19,14 +20,20 @@ class Board:
         self.sixes = pygame.sprite.Group()
         self.sevens = pygame.sprite.Group()
         self.eights = pygame.sprite.Group()
+        self.mines = pygame.sprite.Group()
+
+        # ylemmän matriisin spritet
         self.unopened = pygame.sprite.Group()
         self.marked = pygame.sprite.Group()
-        self.mines = pygame.sprite.Group()
+        self.opened = pygame.sprite.Group()
+
+        self.all_number_sprites = pygame.sprite.Group()
         self.all_sprites = pygame.sprite.Group()
 
         self._initialize_lower_layer_sprites(lower_map)
         self._initialize_top_layer_sprites(top_map)
         self._add_all_sprites()
+        self._add_all_numbers()
 
     # laatan avaaminen
     def open_tile(self, x, y):
@@ -35,6 +42,7 @@ class Board:
                 tile.opened = True
                 tile.update()
                 self.unopened.remove(tile)
+                self.opened.add(tile)
 
     # miinan merkkaus
     def mark_tile(self, x, y):
@@ -58,6 +66,36 @@ class Board:
                 self.marked.remove(tile)
                 self.unopened.add(tile)
                 return True
+
+    # tarkista onko miina avattu
+    def mine_opened(self):
+        for tile in self.opened:
+            if len(self._get_colliding_targets(tile, self.mines)) > 0:
+                return True
+        return False
+
+    # tarkista onko taso läpäisty
+    def is_completed(self):
+        if self._all_mines_marked() and self._all_number_tiles_opened():
+            return True
+        return False
+
+    # tarkista onko jokainen miina merkattu
+    def _all_mines_marked(self):
+        for tile in self.marked:
+            if len(self._get_colliding_targets(tile, self.mines)) == 0:
+                return False
+        return True
+
+    # tarkista onko jokainen numero avattu
+    def _all_number_tiles_opened(self):
+        for tile in self.all_number_sprites:
+            if len(self._get_colliding_targets(tile, self.opened)) == 0:
+                return False
+        return True
+
+    def _get_colliding_targets(self, sprite, sprite_group):
+        return pygame.sprite.spritecollide(sprite, sprite_group, False)
 
     # alustetaan alemman matriisin spritet
     def _initialize_lower_layer_sprites(self, lower_map):
@@ -101,14 +139,16 @@ class Board:
                 tile = top_map[y][x]
                 scale_x = x*self.tile_size
                 scale_y = y*self.tile_size
+                self.unopened.add(UnopenedTile(scale_x, scale_y))
 
-                if tile == 9:
-                    self.unopened.add(UnopenedTile(scale_x, scale_y))
-                elif tile == 10:
-                    self.marked.add(UnopenedTile(scale_x, scale_y))
 
     # lisätään kaikki spritet listaan, jotta piirtäminen näytölle helpompaa
     def _add_all_sprites(self):
         self.all_sprites.add(self.zeroes, self.ones, self.twos, self.threes,
-                             self.fours, self.fives, self.sixes, self.sevens, self.eights, self.mines,
-                             self.unopened, self.marked)
+                            self.fours, self.fives, self.sixes, self.sevens, 
+                            self.eights, self.mines,self.unopened, self.marked)
+    
+    def _add_all_numbers(self):
+        self.all_number_sprites.add(self.zeroes, self.ones, self.twos, 
+                                    self.threes, self.fours, self.fives, 
+                                    self.sixes, self.sevens, self.eights)

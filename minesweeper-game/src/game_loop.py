@@ -14,13 +14,24 @@ class GameLoop:
                 break
             # kutsutaan renderer
             self._render()
+
+            # onko miina avattu
+            if self._board.mine_opened():
+                break
+
+            # onko peli läpäisty
+            if self._board.is_completed():
+                break
+
             # asetetaan fps 60 
             self._clock.tick(60)
 
     def _traverse_events(self):
+        
         # käy läpi tapahtumat
         for event in self._event_queue.get():
             if event.type == pygame.MOUSEBUTTONUP:
+                
                 # klikkauksen koordinaatit
                 mouse_x, mouse_y = event.pos[0], event.pos[1]
                 
