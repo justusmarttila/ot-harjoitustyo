@@ -41,8 +41,8 @@ class TestBoard(unittest.TestCase):
         original_marked_count = len(self.board_1.marked)
         self.board_1.mark_tile(25, 25)
         self.board_1.mark_tile(25, 25)
-        self.assertEqual(original_unopened_count, len(self.board_1.unopened)-1)
-        self.assertEqual(original_marked_count, len(self.board_1.marked)+1)
+        self.assertEqual(original_unopened_count, len(self.board_1.unopened))
+        self.assertEqual(original_marked_count, len(self.board_1.marked))
 
     def test_mine_opened(self):
         self.board_1.open_tile(75, 25)
