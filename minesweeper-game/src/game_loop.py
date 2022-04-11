@@ -10,7 +10,7 @@ class GameLoop:
 
     def start(self):
         while True:
-            if not self._traverse_events():
+            if self._traverse_events() == False:
                 break
             # kutsutaan renderer
             self._render()
