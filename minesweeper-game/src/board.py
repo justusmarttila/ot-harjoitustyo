@@ -136,7 +136,6 @@ class Board:
 
         for y in range(height):
             for x in range(width):
-                tile = top_map[y][x]
                 scale_x = x*self.tile_size
                 scale_y = y*self.tile_size
                 self.unopened.add(UnopenedTile(scale_x, scale_y))
