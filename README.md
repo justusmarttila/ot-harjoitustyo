@@ -29,3 +29,7 @@ poetry run invoke test
 3. Testikattavuusraportti generoidaan komennolla
 
 poetry run invoke coverage-report
+
+4. Koodin laadun tarkistaminen
+
+poetry run invoke lint
