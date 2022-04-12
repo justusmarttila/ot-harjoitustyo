@@ -2,6 +2,6 @@
 
 ## Rakenne
 
-Alustava Ohjelman rakenne
+Alustava Ohjelman pakkausrakenne
 
 ![pakkausrakenne](./kuvat/pakkauskaavio.PNG)
