@@ -1,9 +1,9 @@
 import pygame
 from board import Board
-from game_loop import GameLoop
-from event_queue import EventQueue
-from clock import Clock
-from renderer import Renderer
+from game_loop.game_loop import GameLoop
+from game_loop.event_queue import EventQueue
+from game_loop.clock import Clock
+from game_loop.renderer import Renderer
 
 LOWER_BOARD_1 = [[1, -1, 2, 1, 0, 1, -1],
                  [1,  2, -1, 1, 0, 1,  1],

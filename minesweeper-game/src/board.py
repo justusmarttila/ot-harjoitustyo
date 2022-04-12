@@ -36,31 +36,31 @@ class Board:
         self._add_all_numbers()
 
     # laatan avaaminen
-    def open_tile(self, x, y):
+    def open_tile(self, mouse_x, mouse_y):
         for tile in self.unopened:
-            if tile.rect.collidepoint(x, y):
+            if tile.rect.collidepoint(mouse_x, mouse_y):
                 tile.opened = True
                 tile.update()
                 self.unopened.remove(tile)
                 self.opened.add(tile)
 
     # miinan merkkaus
-    def mark_tile(self, x, y):
-        if self.unmark_tile(x, y):
+    def mark_tile(self, mouse_x, mouse_y):
+        if self.unmark_tile(mouse_x, mouse_y):
             return
 
         # merkkaamattoman merkkaus
         for tile in self.unopened:
-            if tile.rect.collidepoint(x, y):
+            if tile.rect.collidepoint(mouse_x, mouse_y):
                 tile.marked = True
                 tile.update()
                 self.unopened.remove(tile)
                 self.marked.add(tile)
         
     # jos miina on jo merkattu voidaan myös merkkaus poistaa
-    def unmark_tile(self, x, y):
+    def unmark_tile(self, mouse_x, mouse_y):
         for tile in self.marked:
-            if tile.rect.collidepoint(x, y):
+            if tile.rect.collidepoint(mouse_x, mouse_y):
                 tile.marked = False
                 tile.update()
                 self.marked.remove(tile)
