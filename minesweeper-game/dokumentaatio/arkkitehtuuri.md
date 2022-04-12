@@ -4,4 +4,4 @@
 
 Alustava Ohjelman rakenne
 
-! [pakkausrakenne](./kuvat/pakkauskaavio.png)
+! [pakkausrakenne](./kuvat/pakkauskaavio.PNG)
