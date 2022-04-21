@@ -26,6 +26,6 @@ class UnopenedTile(pygame.sprite.Sprite):
 
     def _load_pictures(self):
         pictures = {"unopened": image_load("unopened_tile.png"), 
-            "marked": image_load("marked_tile.png"),
-            "opened": image_load("blank.png")}
+                    "marked": image_load("marked_tile.png"),
+                    "opened": image_load("blank.png")}
         return pictures
