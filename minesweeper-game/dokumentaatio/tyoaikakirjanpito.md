@@ -7,4 +7,5 @@ päivä | aika | mitä tein
 10.4. | 3 | laudan piirtäminen ja laatan avaaminen (kesken)
 11.4. | 4 | laattojen avaaminen ja merkkaaminen toimii samoin miinan painaminen
 12.4. | 1 | dokumentaatiota ja pakkauskaavio
-yht | 17 | 
+21.4. | 3 | laudan generoiminen
+yht | 20 | 
