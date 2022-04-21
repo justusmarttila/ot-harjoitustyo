@@ -2,9 +2,9 @@
 
 ## Dokumentaatio
 
-- [vaatimusmaarittely.md](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+- [vaatimusmaarittely](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/minesweeper-game/dokumentaatio/vaatimusmaarittely.md)
 
-- [tyoaikakirjanpito.md](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+- [tyoaikakirjanpito](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
 - [changelog](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/minesweeper-game/dokumentaatio/changelog.md)
 
