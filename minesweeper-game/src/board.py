@@ -3,7 +3,6 @@ from sprites.opened_tile import OpenedTile
 from sprites.unopened_tile import UnopenedTile
 from sprites.mine import Mine
 
-
 class Board:
     def __init__(self, lower_map, top_map, tile_size):
         self.top_map = top_map
@@ -140,12 +139,11 @@ class Board:
                 scale_y = y*self.tile_size
                 self.unopened.add(UnopenedTile(scale_x, scale_y))
 
-
     # lisätään kaikki spritet listaan, jotta piirtäminen näytölle helpompaa
     def _add_all_sprites(self):
         self.all_sprites.add(self.zeroes, self.ones, self.twos, self.threes,
                             self.fours, self.fives, self.sixes, self.sevens, 
-                            self.eights, self.mines,self.unopened, self.marked)
+                            self.eights, self.mines, self.unopened, self.marked)
     
     def _add_all_numbers(self):
         self.all_number_sprites.add(self.zeroes, self.ones, self.twos, 
