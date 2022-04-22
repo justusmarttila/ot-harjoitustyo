@@ -1,7 +1,6 @@
 import pygame
 from sprites.opened_tile import OpenedTile
 from sprites.unopened_tile import UnopenedTile
-from sprites.mine import Mine
 
 class Board:
     def __init__(self, lower_map, top_map, tile_size):
@@ -28,14 +27,23 @@ class Board:
 
         self.all_number_sprites = pygame.sprite.Group()
         self.all_sprites = pygame.sprite.Group()
+        self.numbers_no_zeroes = pygame.sprite.Group()
 
         self._initialize_lower_layer_sprites(lower_map)
         self._initialize_top_layer_sprites(top_map)
         self._add_all_sprites()
         self._add_all_numbers()
+        self._add_numbers_no_zeroes()
 
     # laatan avaaminen
     def open_tile(self, mouse_x, mouse_y):
+
+        # jos tyhjä laatta eli 0 miinaa avataan kaikki läheiset tyhjät ja numerot 
+        for tile in self.zeroes:
+            if tile.rect.collidepoint(mouse_x, mouse_y):
+                self._dfs_open_nearby(mouse_x, mouse_y)
+                return
+
         for tile in self.unopened:
             if tile.rect.collidepoint(mouse_x, mouse_y):
                 tile.opened = True
@@ -72,6 +80,49 @@ class Board:
             if len(self._get_colliding_targets(tile, self.mines)) > 0:
                 return True
         return False
+
+    def _dfs_open_nearby(self, mouse_x, mouse_y):
+        # ei mennä laudan ulkopuolelle
+        if mouse_x<0 or mouse_x>len(self.top_map[0])*self.tile_size or mouse_y<0 or mouse_y>len(self.top_map)*self.tile_size:
+            return
+
+        # jos miina lopetetaan rekursio
+        for mine in self.mines:
+            if mine.rect.collidepoint(mouse_x, mouse_y):
+                return
+
+        # avataan tyhjästä laatasta vain yksi viereinen numero
+        number = False
+        for tile in self.numbers_no_zeroes:
+            if tile.rect.collidepoint(mouse_x, mouse_y):
+                number = True
+
+        # ei avata uudestaan jo avattua laattaa
+        opened = False
+        for tile in self.opened:
+            if tile.rect.collidepoint(mouse_x, mouse_y):
+                opened = True
+
+        # laatan avaaminen
+        if not opened:
+            for tile in self.unopened:
+                if tile.rect.collidepoint(mouse_x, mouse_y):
+                    tile.opened = True
+                    tile.update()
+                    self.unopened.remove(tile)
+                    self.opened.add(tile)
+
+        # kutsutaan funktiota rekursiivisesti ympärillä oleville laatoille
+        if (not opened) and (not number):
+            self._dfs_open_nearby(mouse_x, mouse_y-self.tile_size)
+            self._dfs_open_nearby(mouse_x, mouse_y+self.tile_size)
+            self._dfs_open_nearby(mouse_x-self.tile_size, mouse_y)
+            self._dfs_open_nearby(mouse_x+self.tile_size, mouse_y)
+            self._dfs_open_nearby(mouse_x-self.tile_size, mouse_y-self.tile_size)
+            self._dfs_open_nearby(mouse_x+self.tile_size, mouse_y-self.tile_size)
+            self._dfs_open_nearby(mouse_x-self.tile_size, mouse_y+self.tile_size)
+            self._dfs_open_nearby(mouse_x+self.tile_size, mouse_y+self.tile_size)
+        
 
     # tarkista onko taso läpäisty
     def is_completed(self):
@@ -126,7 +177,7 @@ class Board:
                 elif tile == 8:
                     self.eights.add(OpenedTile(scale_x, scale_y, 8))
                 elif tile == -1:
-                    self.mines.add(Mine(scale_x, scale_y))
+                    self.mines.add(OpenedTile(scale_x, scale_y, -1))
 
     # alustetaan ylemmän matriisin spritet
     def _initialize_top_layer_sprites(self, top_map):
@@ -149,3 +200,8 @@ class Board:
         self.all_number_sprites.add(self.zeroes, self.ones, self.twos, 
                                     self.threes, self.fours, self.fives, 
                                     self.sixes, self.sevens, self.eights)
+    
+    def _add_numbers_no_zeroes(self):
+        self.numbers_no_zeroes.add(self.ones, self.twos, self.threes,
+                                   self.fours, self.fives, self.sixes,
+                                   self.sevens, self.eights)

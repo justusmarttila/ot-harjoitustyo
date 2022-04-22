@@ -1,4 +1,3 @@
-import imp
 import pygame
 from board import Board
 from game_loop.game_loop import GameLoop
@@ -7,7 +6,7 @@ from game_loop.clock import Clock
 from game_loop.renderer import Renderer
 from board_generator import BoardGenerator
 
-BOARD = BoardGenerator(16, 16, 40)
+BOARD = BoardGenerator(30, 16, 99)
 
 LOWER_BOARD_1 = BOARD.generate()
 
