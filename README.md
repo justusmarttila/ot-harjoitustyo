@@ -10,6 +10,8 @@
 
 - [arkkitehtuuri](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/minesweeper-game/dokumentaatio/arkkitehtuuri.md)
 
+- [release](https://github.com/justusmarttila/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Asennus
 
 1. Asenna riippuvuudet komennolla 
