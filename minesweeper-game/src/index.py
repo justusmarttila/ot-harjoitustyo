@@ -6,11 +6,19 @@ from game_loop.clock import Clock
 from game_loop.renderer import Renderer
 from board_generator import BoardGenerator
 
-BOARD = BoardGenerator(30, 16, 99)
+"""BOARD = BoardGenerator(30, 16, 99)
 
 LOWER_BOARD_1 = BOARD.generate()
 
 TOP_BOARD_1 = BOARD.top_board
+
+TILE_SIZE = 50"""
+
+LOWER_BOARD_1 = [[1, -1, 2, 1, 0, 1, -1],
+                 [1,  2, -1, 1, 0, 1,  1],
+                 [0,  1, 1, 1, 0, 0,  0]]
+
+TOP_BOARD_1 = [[9]*7]*3
 
 TILE_SIZE = 50
 

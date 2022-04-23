@@ -47,4 +47,9 @@ class TestBoard(unittest.TestCase):
     def test_mine_opened(self):
         self.board_1.open_tile(75, 25)
         self.assertTrue(self.board_1.mine_opened())
+
+    def test_dfs_open_nearby(self):
+        self.board_1.open_tile(225, 25)
+        self.assertEqual(len(self.board_1.opened), 11)
+        
         

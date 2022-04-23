@@ -48,4 +48,7 @@ TILE_SIZE = 50
 
         game_loop.start()
 
-        self.assertTrue(self.board_1.mine_opened())"""
+        self.assertTrue(self.board_1.mine_opened())
+
+    def test_clock(self):"""
+

@@ -61,8 +61,3 @@ class BoardGenerator:
                     mines = upper.count(-1) + mid.count(-1) + lower.count(-1)
 
                 self.board[i][j] = mines
-
-                
-if __name__ == "__main__":
-    board = BoardGenerator(16, 16, 40)
-    board.generate()
