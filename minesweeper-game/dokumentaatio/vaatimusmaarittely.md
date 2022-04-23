@@ -12,7 +12,7 @@ Yksi käyttäjä, lisäksi tulokset tallennetaan highscore tauluun, joten pelin 
 ### Kirjautumisen jälkeen
 * Käyttäjä valitsee joko beginner, intermediate, expert tai päättää itse ruudukon koon ja miinojen määrän
     * Beginner on 9x9 10 miinalla, intermediate on 16x16 40 miinalla ja expert on 16x30 99 miinalla
-* Valinnan jälkeen generoidaan valittu muoto (osittain tehty)
+* Valinnan jälkeen generoidaan valittu muoto (tehty)
 * miinoja pystyy merkkaamaan ja laattoja pystyy avaamaan (tehty)
 * miinan avaamisesta häviää pelin ja kaikkien numerolaattojen avaamisesta seuraa pelin voittaminen (tehty)
 * vasemmassa yläkulmassa näkyy montako miinaa on merkkaamatta
