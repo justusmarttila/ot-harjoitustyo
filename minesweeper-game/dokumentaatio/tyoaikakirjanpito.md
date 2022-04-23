@@ -9,4 +9,5 @@ päivä | aika | mitä tein
 12.4. | 1 | dokumentaatiota ja pakkauskaavio
 21.4. | 3 | laudan generoiminen
 22.4. | 3 | tyhjan laatan avaamisen algoritmi
-yht | 23 | 
+23.4. | 2 | testejä 
+yht | 25 | 
