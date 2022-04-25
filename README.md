@@ -15,23 +15,24 @@
 ## Asennus
 
 1. Asenna riippuvuudet komennolla 
-
+```bash
 poetry install
-
+```
 ## Komentorivitoiminnot
 
 1. Käynnistä sovellus komennolla
-
+```bash
 poetry run invoke start
-
+```
 2. Testit suoritetaan komennolla:
-
+```bash
 poetry run invoke test
-
+```
 3. Testikattavuusraportti generoidaan komennolla
-
+```bash
 poetry run invoke coverage-report
-
+```
 4. Koodin laadun tarkistaminen
-
+```bash
 poetry run invoke lint
+```
