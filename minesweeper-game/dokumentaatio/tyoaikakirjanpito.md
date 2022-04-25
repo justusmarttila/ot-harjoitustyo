@@ -8,6 +8,7 @@ päivä | aika | mitä tein
 11.4. | 4 | laattojen avaaminen ja merkkaaminen toimii samoin miinan painaminen
 12.4. | 1 | dokumentaatiota ja pakkauskaavio
 21.4. | 3 | laudan generoiminen
-22.4. | 3 | tyhjan laatan avaamisen algoritmi
+22.4. | 3 | tyhjän laatan avaamisen algoritmi
 23.4. | 2 | testejä 
-yht | 25 | 
+25.4. | 2 | avaamttomien miinojen seuraaminen
+yht | 27 | 
