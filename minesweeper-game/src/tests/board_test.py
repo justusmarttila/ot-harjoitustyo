@@ -25,31 +25,31 @@ class TestBoard(unittest.TestCase):
     def test_can_open_tile(self):
         original_unopened_count = len(self.board_1.unopened)
         original_opened_count = len(self.board_1.opened)
-        self.board_1.open_tile(25, 25)
+        self.board_1.open_tile(25, 125)
         self.assertEqual(original_unopened_count, len(self.board_1.unopened)+1)
         self.assertEqual(original_opened_count, len(self.board_1.opened)-1)
 
     def test_can_mark_tile(self):
         original_unopened_count = len(self.board_1.unopened)
         original_marked_count = len(self.board_1.marked)
-        self.board_1.mark_tile(25, 25)
+        self.board_1.mark_tile(25, 125)
         self.assertEqual(original_unopened_count, len(self.board_1.unopened)+1)
         self.assertEqual(original_marked_count, len(self.board_1.marked)-1)
 
     def test_if_marked_unmark(self):
         original_unopened_count = len(self.board_1.unopened)
         original_marked_count = len(self.board_1.marked)
-        self.board_1.mark_tile(25, 25)
-        self.board_1.mark_tile(25, 25)
+        self.board_1.mark_tile(25, 125)
+        self.board_1.mark_tile(25, 125)
         self.assertEqual(original_unopened_count, len(self.board_1.unopened))
         self.assertEqual(original_marked_count, len(self.board_1.marked))
 
     def test_mine_opened(self):
-        self.board_1.open_tile(75, 25)
+        self.board_1.open_tile(75, 125)
         self.assertTrue(self.board_1.mine_opened())
 
     def test_dfs_open_nearby(self):
-        self.board_1.open_tile(225, 25)
+        self.board_1.open_tile(225, 125)
         self.assertEqual(len(self.board_1.opened), 11)
         
         
