@@ -16,3 +16,9 @@
 - testauskattavuus 66% ja pylint asennettu
 - Baord-luokkaa testattu lisää ja game_loopin testaus alustettu
 
+## Viikko 5
+
+- laudan generoiminen antamalla koon ja miinojen määrän
+- kun painetaan tyhjää laattaa avautuu niin, että kaikki yhdistetyt tyhjät ja yksi kerros numeroita (rekursiolla)
+- miinojen merkkaamattomien miinojen seuraaminen vasemmassa ylänurkassa
+- laudan generoimisen testaamista
