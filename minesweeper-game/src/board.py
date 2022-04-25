@@ -83,7 +83,7 @@ class Board:
 
     def _dfs_open_nearby(self, mouse_x, mouse_y):
         # ei mennä laudan ulkopuolelle
-        if mouse_x<0 or mouse_x>len(self.top_map[0])*self.tile_size or mouse_y<0 or mouse_y>len(self.top_map)*self.tile_size:
+        if mouse_x<0 or mouse_x>len(self.top_map[0])*self.tile_size or mouse_y<100 or mouse_y>len(self.top_map)*self.tile_size+100:
             return
 
         # jos miina lopetetaan rekursio
@@ -156,7 +156,7 @@ class Board:
             for x in range(width):
                 tile = lower_map[y][x]
                 scale_x = x*self.tile_size
-                scale_y = y*self.tile_size
+                scale_y = y*self.tile_size+100
 
                 if tile == 0:
                     self.zeroes.add(OpenedTile(scale_x, scale_y, 0))
@@ -187,7 +187,7 @@ class Board:
         for y in range(height):
             for x in range(width):
                 scale_x = x*self.tile_size
-                scale_y = y*self.tile_size
+                scale_y = y*self.tile_size+100
                 self.unopened.add(UnopenedTile(scale_x, scale_y))
 
     # lisätään kaikki spritet listaan, jotta piirtäminen näytölle helpompaa

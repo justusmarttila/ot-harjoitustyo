@@ -6,7 +6,7 @@ from game_loop.clock import Clock
 from game_loop.renderer import Renderer
 from board_generator import BoardGenerator
 
-BOARD = BoardGenerator(30, 16, 99)
+BOARD = BoardGenerator(16, 16, 40)
 
 LOWER_BOARD_1 = BOARD.generate()
 
@@ -22,7 +22,7 @@ def main():
     scaled_height = height*TILE_SIZE
 
     # ikkunan alustus
-    display = pygame.display.set_mode((scaled_width, scaled_height))
+    display = pygame.display.set_mode((scaled_width, scaled_height+100))
 
     # ikkunan nimeäminen
     pygame.display.set_caption("Minesweeper")
