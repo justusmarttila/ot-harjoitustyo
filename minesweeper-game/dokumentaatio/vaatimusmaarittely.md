@@ -15,7 +15,7 @@ Yksi käyttäjä, lisäksi tulokset tallennetaan highscore tauluun, joten pelin 
 * Valinnan jälkeen generoidaan valittu muoto (tehty)
 * miinoja pystyy merkkaamaan ja laattoja pystyy avaamaan (tehty)
 * miinan avaamisesta häviää pelin ja kaikkien numerolaattojen avaamisesta seuraa pelin voittaminen (tehty)
-* vasemmassa yläkulmassa näkyy montako miinaa on merkkaamatta
+* vasemmassa yläkulmassa näkyy montako miinaa on merkkaamatta (tehty)
 * keskellä ylhäällä on restart nappi, josta voi aloittaa uuden pelin samalla ruudukolla ja sen vieressä new game nappi, josta voi valita uuden ruudukon
 * oikeassa ylänurkassa on suoritukseen kulunut aika sekunteina
 ### Pelin loppumisen jälkeen
