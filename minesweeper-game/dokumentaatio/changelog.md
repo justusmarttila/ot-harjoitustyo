@@ -22,3 +22,4 @@
 - kun painetaan tyhjää laattaa avautuu niin, että kaikki yhdistetyt tyhjät ja yksi kerros numeroita (rekursiolla)
 - miinojen merkkaamattomien miinojen seuraaminen vasemmassa ylänurkassa
 - laudan generoimisen testaamista
+- github release
