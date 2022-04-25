@@ -10,5 +10,5 @@ päivä | aika | mitä tein
 21.4. | 3 | laudan generoiminen
 22.4. | 3 | tyhjän laatan avaamisen algoritmi
 23.4. | 2 | testejä 
-25.4. | 2 | avaamttomien miinojen seuraaminen
+25.4. | 2 | avaamattomien miinojen seuraaminen
 yht | 27 | 
