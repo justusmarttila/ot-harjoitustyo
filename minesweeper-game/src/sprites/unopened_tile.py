@@ -2,7 +2,7 @@ from image_load import image_load
 import pygame
 
 class UnopenedTile(pygame.sprite.Sprite):
-    def __init__(self, x=0, y=0, marked=False, opened=False):
+    def __init__(self, x_coord=0, y_coord=0, marked=False, opened=False):
         super().__init__()
 
         self.marked = marked
@@ -10,8 +10,8 @@ class UnopenedTile(pygame.sprite.Sprite):
         self._pictures = self._load_pictures()
         self.image = self._pictures["unopened"]
         self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y
+        self.rect.x = x_coord
+        self.rect.y = y_coord
 
     def update(self):
         # valitse merkattu kuva

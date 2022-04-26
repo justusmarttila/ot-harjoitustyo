@@ -52,4 +52,3 @@ class TestBoard(unittest.TestCase):
         self.board_1.open_tile(225, 125)
         self.assertEqual(len(self.board_1.opened), 11)
         
-        

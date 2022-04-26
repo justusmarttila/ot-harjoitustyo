@@ -63,7 +63,6 @@ class Board:
                 tile.update()
                 self.unopened.remove(tile)
                 self.marked.add(tile)
-        
     # jos miina on jo merkattu voidaan myös merkkaus poistaa
     def unmark_tile(self, mouse_x, mouse_y):
         for tile in self.marked:
@@ -83,7 +82,9 @@ class Board:
 
     def _dfs_open_nearby(self, mouse_x, mouse_y):
         # ei mennä laudan ulkopuolelle
-        if mouse_x<0 or mouse_x>len(self.top_map[0])*self.tile_size or mouse_y<100 or mouse_y>len(self.top_map)*self.tile_size+100:
+        if mouse_x<0 or mouse_x>len(self.top_map[0])*self.tile_size:
+            return
+        if mouse_y<100 or mouse_y>len(self.top_map)*self.tile_size+100:
             return
 
         # jos miina lopetetaan rekursio
@@ -122,7 +123,6 @@ class Board:
             self._dfs_open_nearby(mouse_x+self.tile_size, mouse_y-self.tile_size)
             self._dfs_open_nearby(mouse_x-self.tile_size, mouse_y+self.tile_size)
             self._dfs_open_nearby(mouse_x+self.tile_size, mouse_y+self.tile_size)
-        
 
     # tarkista onko taso läpäisty
     def is_completed(self):
@@ -152,11 +152,11 @@ class Board:
         width = len(lower_map[0])
         height = len(lower_map)
 
-        for y in range(height):
-            for x in range(width):
-                tile = lower_map[y][x]
-                scale_x = x*self.tile_size
-                scale_y = y*self.tile_size+100
+        for y_coord in range(height):
+            for x_coord in range(width):
+                tile = lower_map[y_coord][x_coord]
+                scale_x = x_coord*self.tile_size
+                scale_y = y_coord*self.tile_size+100
 
                 if tile == 0:
                     self.zeroes.add(OpenedTile(scale_x, scale_y, 0))
@@ -184,23 +184,23 @@ class Board:
         width = len(top_map[0])
         height = len(top_map)
 
-        for y in range(height):
-            for x in range(width):
-                scale_x = x*self.tile_size
-                scale_y = y*self.tile_size+100
+        for y_coord in range(height):
+            for x_coord in range(width):
+                scale_x = x_coord*self.tile_size
+                scale_y = y_coord*self.tile_size+100
                 self.unopened.add(UnopenedTile(scale_x, scale_y))
 
     # lisätään kaikki spritet listaan, jotta piirtäminen näytölle helpompaa
     def _add_all_sprites(self):
         self.all_sprites.add(self.zeroes, self.ones, self.twos, self.threes,
-                            self.fours, self.fives, self.sixes, self.sevens, 
+                            self.fours, self.fives, self.sixes, self.sevens,
                             self.eights, self.mines, self.unopened, self.marked)
-    
+    # numeroiden lisääminen spriteihin
     def _add_all_numbers(self):
-        self.all_number_sprites.add(self.zeroes, self.ones, self.twos, 
-                                    self.threes, self.fours, self.fives, 
+        self.all_number_sprites.add(self.zeroes, self.ones, self.twos,
+                                    self.threes, self.fours, self.fives,
                                     self.sixes, self.sevens, self.eights)
-    
+    # numerot ei nollia
     def _add_numbers_no_zeroes(self):
         self.numbers_no_zeroes.add(self.ones, self.twos, self.threes,
                                    self.fours, self.fives, self.sixes,

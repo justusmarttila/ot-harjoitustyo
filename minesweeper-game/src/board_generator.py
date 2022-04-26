@@ -6,12 +6,12 @@ class BoardGenerator:
         self.height = height
         self.mines = mines
         self.top_board = [[9]*self.width]*self.height
+        self.board = [[] for j in range(self.height)]
 
     def generate(self):
         mines = 0
-        self.board = [[] for j in range(self.height)]
         for i in range(self.height):
-            for j in range(self.width):
+            for _ in range(self.width):
                 if  mines == self.mines:
                     pick = 0
                 else:
@@ -28,10 +28,6 @@ class BoardGenerator:
             for j in range(self.width):
                 if self.board[i][j] == -1:
                     continue
-                if 0<i<self.height-1 and 0<j<self.width-1:
-                    upper = self.board[i-1][j-1:j+2]
-                    mid = self.board[i][j-1:j+2]
-                    lower = self.board[i+1][j-1:j+2]
                 # vasen ylänurkka
                 if i == 0 and j == 0:
                     mines = self.board[i][j:j+2].count(-1) + self.board[i+1][j:j+2].count(-1)
@@ -52,12 +48,21 @@ class BoardGenerator:
                     mines = self.board[i][j-1:j+2].count(-1) + self.board[i-1][j-1:j+2].count(-1)
                 # vasen reuna
                 elif j == 0:
-                    mines = self.board[i-1][j:j+2].count(-1) + self.board[i][j:j+2].count(-1) + self.board[i+1][j:j+2].count(-1)
+                    upper = self.board[i-1][j:j+2]
+                    mid = self.board[i][j:j+2]
+                    lower = self.board[i+1][j:j+2]
+                    mines = upper.count(-1) + mid.count(-1) + lower.count(-1)
                 # oikea reuna
                 elif j == self.width-1:
-                    mines = self.board[i-1][j-1:j+1].count(-1) + self.board[i][j-1:j+1].count(-1) + self.board[i+1][j-1:j+1].count(-1)
-                # muuten
-                else:
+                    upper = self.board[i-1][j-1:j+1]
+                    mid = self.board[i][j-1:j+1]
+                    lower = self.board[i+1][j-1:j+1]
                     mines = upper.count(-1) + mid.count(-1) + lower.count(-1)
-
+                # muuten
+                elif 0<i<self.height-1 and 0<j<self.width-1:
+                    upper = self.board[i-1][j-1:j+2]
+                    mid = self.board[i][j-1:j+2]
+                    lower = self.board[i+1][j-1:j+2]
+                    mines = upper.count(-1) + mid.count(-1) + lower.count(-1)
                 self.board[i][j] = mines
+    

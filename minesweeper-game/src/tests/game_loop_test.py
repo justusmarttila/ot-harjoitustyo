@@ -51,4 +51,3 @@ TILE_SIZE = 50
         self.assertTrue(self.board_1.mine_opened())
 
     def test_clock(self):"""
-

@@ -24,7 +24,7 @@ class GameLoop:
             if self._board.is_completed():
                 break
 
-            # asetetaan fps 60 
+            # asetetaan fps 60
             self._clock.tick(60)
 
     def _traverse_events(self):
