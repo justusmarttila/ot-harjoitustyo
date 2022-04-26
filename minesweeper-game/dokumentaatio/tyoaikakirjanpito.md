@@ -12,4 +12,4 @@ päivä | aika | mitä tein
 23.4. | 2 | testejä 
 25.4. | 2 | avaamattomien miinojen seuraaminen
 26.4. | 2 | linttausta
-yht | 27 | 
+yht | 29 | 
