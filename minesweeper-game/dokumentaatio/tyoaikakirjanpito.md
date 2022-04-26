@@ -11,4 +11,5 @@ päivä | aika | mitä tein
 22.4. | 3 | tyhjän laatan avaamisen algoritmi
 23.4. | 2 | testejä 
 25.4. | 2 | avaamattomien miinojen seuraaminen
+26.4. | 2 | linttausta
 yht | 27 | 
