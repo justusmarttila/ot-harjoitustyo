@@ -6,6 +6,9 @@ from game_loop.clock import Clock
 from game_loop.renderer import Renderer
 from board_generator import BoardGenerator
 
+from tkinter import Tk
+from ui.ui import UI
+
 BOARD = BoardGenerator(16, 16, 40)
 
 LOWER_BOARD_1 = BOARD.generate()
@@ -15,6 +18,15 @@ TOP_BOARD_1 = BOARD.top_board
 TILE_SIZE = 50
 
 def main():
+
+    window = Tk()
+    window.title("Minesweeper")
+
+    ui_view = UI(window)
+    ui_view.start()
+
+    window.mainloop()
+
     # asetetaan laudan koko
     width = len(LOWER_BOARD_1[0])
     height = len(LOWER_BOARD_1)
