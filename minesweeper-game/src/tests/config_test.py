@@ -1,4 +1,4 @@
-from build import build
+"""from build import build
 
 def pytest_configure():
-    build()
+    build()"""

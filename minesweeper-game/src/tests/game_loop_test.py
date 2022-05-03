@@ -1,8 +1,8 @@
-#import pygame
-#import unittest
+"""import pygame
+import unittest
 
-#from board import Board
-#from game_loop import GameLoop
+from board import Board
+from game_loop import GameLoop
 
 class StubClock:
     def tick(self, fps):
@@ -37,7 +37,7 @@ TOP_BOARD_1 = [[9]*7]*3
 
 TILE_SIZE = 50
 
-"""class TestGameLoop(unittest.TestCase):
+class TestGameLoop(unittest.TestCase):
     def setUp(self):
         self.board_1 = Board(LOWER_BOARD_1, TOP_BOARD_1, TILE_SIZE)
 
