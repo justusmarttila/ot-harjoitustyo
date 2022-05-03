@@ -12,4 +12,5 @@ päivä | aika | mitä tein
 23.4. | 2 | testejä 
 25.4. | 2 | avaamattomien miinojen seuraaminen
 26.4. | 2 | linttausta
-yht | 29 | 
+3.5. | 9 | kello oikeaan ylänurkkaan ja ui:n aloittaminen
+yht | 38 | 
