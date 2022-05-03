@@ -2,9 +2,9 @@ from ui.register_user_display import RegisterUserDispay
 from ui.login_display import LoginDisplay
 from ui.select_level_display import SelectLevelDisplay
 
-
 class UI:
-    """Pelin käyttöliittymän luokka"""
+    """Pelin käyttöliittymän luokka
+    """
 
     def __init__(self, root):
         self._current_display = None
