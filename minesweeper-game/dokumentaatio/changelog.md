@@ -23,3 +23,12 @@
 - miinojen merkkaamattomien miinojen seuraaminen vasemmassa ylänurkassa
 - laudan generoimisen testaamista
 - github release
+
+## Viikko 6
+
+- käyttöliittymän toteutuksen aloitus, pystyy valitsemaan vaikeusasteen ja peli käynnistyy
+- database juttujen aloittaminen ja ui koodaamista
+- siirtymiset login näytön ja tason valitsemisen kanssa toimii
+- oikeassa ylänurkassa näkyy peliin kulunut aika
+- dosctringausta melko paljon
+- uille testo kun valitsee beginner
