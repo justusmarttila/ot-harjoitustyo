@@ -1,5 +1,9 @@
 # Miinaharava
 
+## Käyttöohje
+
+Paina alussa Login nappia ja sitten valitse vaikeustaso
+
 ## Dokumentaatio
 
 - [vaatimusmaarittely](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/minesweeper-game/dokumentaatio/vaatimusmaarittely.md)
