@@ -3,22 +3,22 @@
 def drop_tables(connection):
     db = connection.cursor()
 
-    db.execute("""
+    db.execute("
     drop table if exists users;
-    """)
+    ")
 
     connection.commit()
 
 def create_tables(connection):
     db = connection.cursor()
 
-    db.execute("""
+    db.execute("
     create table users (
         id integer primary key,
         username text,
         password text
     );
-    """)
+    ")
 
     connection.commit()
 
