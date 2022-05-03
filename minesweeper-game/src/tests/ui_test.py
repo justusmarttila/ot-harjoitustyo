@@ -10,5 +10,5 @@ class TestUI(unittest.TestCase):
         self.test_ui.start()
         self.window.mainloop()
 
-    def test_init(self):
-        self.assertEqual(self.test_ui.level, None)
+    def test_beginner_button(self):
+        self.assertEqual(self.test_ui.level, (9, 9, 10))
