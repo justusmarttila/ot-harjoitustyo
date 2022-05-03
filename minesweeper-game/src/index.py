@@ -9,23 +9,20 @@ from board_generator import BoardGenerator
 from tkinter import Tk
 from ui.ui import UI
 
-BOARD = BoardGenerator(16, 16, 40)
-
-LOWER_BOARD_1 = BOARD.generate()
-
-TOP_BOARD_1 = BOARD.top_board
-
-TILE_SIZE = 50
-
 def main():
 
     window = Tk()
     window.title("Minesweeper")
 
-    ui_view = UI(window)
-    ui_view.start()
-
+    ui = UI(window)
+    ui.start()
+    
     window.mainloop()
+
+    BOARD = BoardGenerator(ui.level[0], ui.level[1], ui.level[2])
+    LOWER_BOARD_1 = BOARD.generate()
+    TOP_BOARD_1 = BOARD.top_board
+    TILE_SIZE = 50
 
     # asetetaan laudan koko
     width = len(LOWER_BOARD_1[0])

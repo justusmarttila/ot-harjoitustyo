@@ -2,12 +2,13 @@ from tkinter import ttk, constants
 
 class SelectLevelDisplay:
 
-    def __init__(self, root, handle_logout):
+    def __init__(self, root, handle_selection, handle_logout):
 
         self._root = root
         self._handle_logout = handle_logout
-        self.level = None
+        self._handle_selection = handle_selection
         self._frame = None
+        self.level = None
 
         self._init()
 
@@ -18,16 +19,13 @@ class SelectLevelDisplay:
         self._frame.destroy()
 
     def _beginner_button_handler(self):
-        self.level = (9, 9, 10)
-        self._root.quit()
+        self._handle_selection((9, 9, 10))
 
     def _intermediate_button_handler(self):
-        self.level = (16, 16, 40)
-        self._root.quit()
+        self._handle_selection((16, 16, 40))
 
     def _expert_button_handler(self):
-        self.level = (16, 30, 99)
-        self._root.quit()
+        self._handle_selection((30, 16, 99))
 
     def _init(self):
         self._frame = ttk.Frame(master=self._root)

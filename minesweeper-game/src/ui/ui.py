@@ -9,7 +9,7 @@ class UI:
     def __init__(self, root):
         self._current_display = None
         self._root = root
-        self.l = None
+        self.level = None
         
     def start(self):
 
@@ -26,7 +26,7 @@ class UI:
 
         self._current_display = RegisterUserDispay(
             self._root,
-            self._show_select_level_diplay,
+            self._show_select_level_display,
             self._show_login_display
         )
 
@@ -37,17 +37,19 @@ class UI:
 
         self._current_display = LoginDisplay(
             self._root,
-            self._show_select_level_diplay,
+            self._show_select_level_display,
             self._show_register_user_display
         )
 
         self._current_display.pack()
         
-    def _show_select_level_diplay(self):
+    def _show_select_level_display(self):
         self._hide_current_display()
         
-        self._current_display = SelectLevelDisplay(self._root, self._show_login_display)
-        self.l = self._current_display.level
+        self._current_display = SelectLevelDisplay(self._root, self._return_level, self._show_login_display)
 
         self._current_display.pack()
-        
+
+    def _return_level(self, level):
+        self.level = level
+        self._root.destroy()

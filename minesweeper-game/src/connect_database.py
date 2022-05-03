@@ -1,7 +1,7 @@
 import sqlite3
-from config import FILE_PATH_DATABASE
+from config import DATABASE_FILE_PATH
 
-connection = sqlite3.connect(FILE_PATH_DATABASE)
+connection = sqlite3.connect(DATABASE_FILE_PATH)
 connection.row_factory = sqlite3.Row
 
 def get_database_connection():

@@ -30,7 +30,8 @@ class UserRepository:
 
     def create(self, user):
         db = self._connection.cursor()
-        db.execute("insert into users (username, password) values (?, ?)", (user.username, user.password))
+        db.execute("insert into users (username, password) values (?, ?)",
+        (user.username, user.password))
 
         self._connection.commit()
         return user
