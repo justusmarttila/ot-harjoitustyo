@@ -8,7 +8,6 @@ class SelectLevelDisplay:
         self._handle_logout = handle_logout
         self._handle_selection = handle_selection
         self._frame = None
-        self.level = None
 
         self._init()
 

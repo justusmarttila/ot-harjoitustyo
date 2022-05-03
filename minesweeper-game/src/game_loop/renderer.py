@@ -3,7 +3,24 @@ from font_load import font_load
 import time
 
 class Renderer:
+    """Luokka, joka vastaa kaikesta pelinäytölle piirrettävästä materiaalista.
+
+    Attributes:
+        display (Pygame.Surface): Pelinäyttö, jolle asiat piirretään.
+        board (Board-olio): Lauta, joka piirretään näytölle.
+    """
+
     def __init__(self, display, board):
+        """_summary_
+
+        Args:
+            display (Pygame.Surface): Pelinäyttö, jolle asiat piirretään.
+            board (Board-olio): Lauta, joka piirretään näytölle.
+            mines_left (Integer): Kuinka monta miinaa on merkkaamatta.
+            font (pygame.font.Font): Kellon ja merkkaamattomien miinojen fontti.
+            time (pygame.time.time): Aika mitä on kulunut pelin alusta.
+        """
+
         self._display = display
         self._board = board
         self._mines_left = 0
@@ -11,6 +28,9 @@ class Renderer:
         self._time = time.time()
 
     def render(self):
+        """Objektien piirtäminen näytölle
+        """
+        
         # jäljellä olevien miinojen esittäminen vasemmassa ylänurkassa
         self._mines_left = len(self._board.mines)-len(self._board.marked)
         self._display.fill((171, 174, 171))

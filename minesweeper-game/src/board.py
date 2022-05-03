@@ -3,7 +3,18 @@ from sprites.opened_tile import OpenedTile
 from sprites.unopened_tile import UnopenedTile
 
 class Board:
+    """Luokka, joka vastaa pelilautaan liittyvistä toiminnoista
+    """
+
     def __init__(self, lower_map, top_map, tile_size):
+        """Konstruktori, joka luo yksittäisen uuden pelilaudan.
+
+        Args:
+            lower_map (list): Alempi eli numeroita ja miinoja kuvaava lauta.
+            top_map (list): Ylempi eli avaamattomia laattoja kuvaava lauta.
+            tile_size (int): Yksittäisen laatan koko.
+        """
+
         self.top_map = top_map
         self.lower_map = lower_map
         self.tile_size = tile_size
@@ -35,15 +46,21 @@ class Board:
         self._add_all_numbers()
         self._add_numbers_no_zeroes()
 
-    # laatan avaaminen
     def open_tile(self, mouse_x, mouse_y):
+        """Laatan avaamisesta huolehtiva funktio.
 
-        # jos tyhjä laatta eli 0 miinaa avataan kaikki läheiset tyhjät ja numerot 
+        Args:
+            mouse_x (float): Hiiren vasemman painikkeen painamisen x-koordinaatti.
+            mouse_y (float): Hiiren vasemman painikkeen painamisen y-koordinaatti.
+        """
+
+        # jos tyhjä laatta eli 0 miinaa avataan kaikki läheiset tyhjät ja numerot
         for tile in self.zeroes:
             if tile.rect.collidepoint(mouse_x, mouse_y):
                 self._dfs_open_nearby(mouse_x, mouse_y)
                 return
 
+        # laatan avaaminen
         for tile in self.unopened:
             if tile.rect.collidepoint(mouse_x, mouse_y):
                 tile.opened = True
@@ -51,8 +68,14 @@ class Board:
                 self.unopened.remove(tile)
                 self.opened.add(tile)
 
-    # miinan merkkaus
     def mark_tile(self, mouse_x, mouse_y):
+        """Funktio, joka merkkaa avaamattoman laatan.
+
+        Args:
+            mouse_x (float): Hiiren oikean painikkeen painamisen x-koordinaatti.
+            mouse_y (float): Hiiren oikean painikkeen painamisen y-koordinaatti.
+        """
+
         if self.unmark_tile(mouse_x, mouse_y):
             return
 
@@ -63,8 +86,18 @@ class Board:
                 tile.update()
                 self.unopened.remove(tile)
                 self.marked.add(tile)
-    # jos miina on jo merkattu voidaan myös merkkaus poistaa
+
     def unmark_tile(self, mouse_x, mouse_y):
+        """Funktio, joka poistaa merkin jo merkatusta laatasta.
+
+        Args:
+            mouse_x (float): Hiiren oikean painikkeen painamisen x-koordinaatti.
+            mouse_y (float): Hiiren oikean painikkeen painamisen y-koordinaatti.
+
+        Returns:
+            Bool: Palauttaa True, jos poistettiin merkkaus, jolloin laatalle ei tehdä mitään.
+        """
+
         for tile in self.marked:
             if tile.rect.collidepoint(mouse_x, mouse_y):
                 tile.marked = False
@@ -73,14 +106,28 @@ class Board:
                 self.unopened.add(tile)
                 return True
 
-    # tarkista onko miina avattu
     def mine_opened(self):
+        """Funktio, joka kertoo onko mikä tahansa miinoista avattu, jolloin pelaaja häviää pelin.
+
+        Returns:
+            Bool: True, jos miina on avattu muuten False.
+        """
+
         for tile in self.opened:
             if len(self._get_colliding_targets(tile, self.mines)) > 0:
                 return True
         return False
 
     def _dfs_open_nearby(self, mouse_x, mouse_y):
+        """Rekursiivinen algoritmi, joka aktivoituu, kun pelaaja avaa tyhjän laatan.
+        Tällöin avataan kaikki tyhjään laattaan kosketuksissa olevat tyhjät laatat ja
+        yksi kerros numeroita tyhjistä laatoista.
+
+        Args:
+            mouse_x (float): Hiiren vasemman painikkeen painamisen x-koordinaatti.
+            mouse_y (float): Hiiren vasemman painikkeen painamisen y-koordinaatti.
+        """
+
         # ei mennä laudan ulkopuolelle
         if mouse_x<0 or mouse_x>len(self.top_map[0])*self.tile_size:
             return
@@ -124,31 +171,62 @@ class Board:
             self._dfs_open_nearby(mouse_x-self.tile_size, mouse_y+self.tile_size)
             self._dfs_open_nearby(mouse_x+self.tile_size, mouse_y+self.tile_size)
 
-    # tarkista onko taso läpäisty
     def is_completed(self):
+        """Funktio, joka tarkistaa onko kaikki miinat merkattu ja että onko kaikki ei-miina laatat avattu.
+
+        Returns:
+            Bool: Palauttaa True, jos peli on läpäisty eli kaikki ei-miinat on avattu, muuten False.
+        """
+
         if self._all_mines_marked() and self._all_number_tiles_opened():
             return True
         return False
 
-    # tarkista onko jokainen miina merkattu
     def _all_mines_marked(self):
+        """Tarkistaa onko, jokainen miina merkattu.
+
+        Returns:
+            Bool: Jos jokin, miina on merkkaamatta paluttaa False, muuten True.
+        """
+
         for tile in self.marked:
             if len(self._get_colliding_targets(tile, self.mines)) == 0:
                 return False
         return True
 
-    # tarkista onko jokainen numero avattu
     def _all_number_tiles_opened(self):
+        """Funktio, joka tarkistaa, että kaikki numerolaatat eli ei-miinat on avattu.
+
+        Returns:    
+            Bool: Palauttaa False, jos jokin numerolaatoista on avaamatta, muuten True.
+        """
+
         for tile in self.all_number_sprites:
             if len(self._get_colliding_targets(tile, self.opened)) == 0:
                 return False
         return True
 
     def _get_colliding_targets(self, sprite, sprite_group):
+        """Funktio, joka kertoo osuuko tietty peliobjekti eli sprite johonki tietyn ryhmän objekteihin.
+
+        Args:
+            sprite (pygame.sprite): Peliobjekti, jonka osumista tietyn ryhmän objekteihin tutkitaan.
+            sprite_group (pygame.sprite.group()): Peliobjektien joukko.
+
+        Returns:
+            int: Palauttaa kuinka moneen joukon objekteista yksittäinen objekti osuu.
+        """
         return pygame.sprite.spritecollide(sprite, sprite_group, False)
 
-    # alustetaan alemman matriisin spritet
     def _initialize_lower_layer_sprites(self, lower_map):
+        """Funktio, joka alustaa alemman matriisin peliobjektit eli spritet.
+        Alempaan matriisiin kuuluu miinat, numerot sekä tyhjät avatut laatat.
+
+        Args:
+            lower_map (list): Matriisi, joka kertoo alemman laudan rakenteen. 
+            -1 tarkoittaa miinaa, muuten numero kertoo montako miinaa sen ympärillä on.
+        """
+
         width = len(lower_map[0])
         height = len(lower_map)
 
@@ -179,8 +257,14 @@ class Board:
                 elif tile == -1:
                     self.mines.add(OpenedTile(scale_x, scale_y, -1))
 
-    # alustetaan ylemmän matriisin spritet
     def _initialize_top_layer_sprites(self, top_map):
+        """Funktio, joka alustaa ylemmän laudan peliobjektit.
+        Ylempään lautaan kuuluvat avaamaton, merkattu sekä läpinäkyvä laatta.
+
+        Args:
+            top_map (list): Matriisi, joka ilmaisee ylemmän laudan rakenteen.
+            (9 tarkoittaa avaamatonta laattaa)
+        """
         width = len(top_map[0])
         height = len(top_map)
 
@@ -190,18 +274,27 @@ class Board:
                 scale_y = y_coord*self.tile_size+100
                 self.unopened.add(UnopenedTile(scale_x, scale_y))
 
-    # lisätään kaikki spritet listaan, jotta piirtäminen näytölle helpompaa
     def _add_all_sprites(self):
+        """Funktio, joka lisää kaikki spritet listaan, jotta piirtäminen näytölle on helpompaa.
+        """
+
         self.all_sprites.add(self.zeroes, self.ones, self.twos, self.threes,
                             self.fours, self.fives, self.sixes, self.sevens,
                             self.eights, self.mines, self.unopened, self.marked)
-    # numeroiden lisääminen spriteihin
+
     def _add_all_numbers(self):
+        """Funktio, joka lisää kaikki ei-miinat joukkoon peliobjekteja, jotta voidaan tarkistaa onko peli läpäisty.
+        """
+
         self.all_number_sprites.add(self.zeroes, self.ones, self.twos,
                                     self.threes, self.fours, self.fives,
                                     self.sixes, self.sevens, self.eights)
-    # numerot ei nollia
+
     def _add_numbers_no_zeroes(self):
+        """Funktio, joka lisää kaikki numerot eli ei miinoja eikä nollia peliobjektien listaan,
+        jotta _dfs_open_nearby() algoritmi pystyy toteuttamaan rekursion okein
+        """
+        
         self.numbers_no_zeroes.add(self.ones, self.twos, self.threes,
                                    self.fours, self.fives, self.sixes,
                                    self.sevens, self.eights)

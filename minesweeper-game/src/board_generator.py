@@ -1,7 +1,25 @@
 import random
 
 class BoardGenerator:
+    """Luokka, joka vastaa tietyn kokoisen pelilaudan rakentamisesta.
+
+    Attributes: 
+        width (int): Rakennettavan laudan leveys.
+        height (int): Rakennettavan laudan korkeus.
+        mines (int): Miinojen määrä rakennettavassa laudassa.
+    """
+
     def __init__(self, width, height, mines):
+        """Konstruktori, joka luo yksittäisen uuden pelilaudan.
+
+        Args:
+            width (int): Rakennettavan laudan leveys.
+            height (int): Rakennettavan laudan korkeus.
+            mines (int): Miinojen määrä rakennettavassa laudassa.
+            top_board (list): Ylempi lauta, joka kuvaa avaamattomia laattoja (aluksi kaikki 9).
+            board (list): Tyhjä matriisi, johon generoidaan halutun kokoinen lauta, jossa on haluttu määrä miinoja.
+        """
+
         self.width = width
         self.height = height
         self.mines = mines
@@ -9,21 +27,41 @@ class BoardGenerator:
         self.board = [[] for j in range(self.height)]
 
     def generate(self):
+        """Laudan rakentamisesta vastaava funktio.
+
+        Returns:
+            list: Palauttaa matriisina rakennetun laudan.
+        """
+
         mines = 0
         for i in range(self.height):
             for _ in range(self.width):
+
+                # jos laudalla on jo tarpeeksi miinoja
                 if  mines == self.mines:
                     pick = 0
+                # muuten lisätään laudalle, joko tyhjä tai -1 eli miina
                 else:
                     pick = random.choice([-1, 0, 0, 0])
                 self.board[i].append(pick)
+
+                # pidetään kirjaa montako miinaa ollaan lisätty
                 if pick == -1:
                     mines += 1
+        
+        # sekoitetaan rivit
         random.shuffle(self.board)
+
+        # listään numerot
         self._add_numbers()
+
         return self.board
 
     def _add_numbers(self):
+        """Funktio, joka lisää numerot lautaan, jossa on miinoja siten, 
+        että jokainen numero kertoo montako miinaa on sen ympärillä olevissa kahdeksessa ruudussa.
+        """
+
         for i in range(self.height):
             for j in range(self.width):
                 if self.board[i][j] == -1:
