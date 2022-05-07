@@ -16,7 +16,6 @@ def main():
 
     ui = UI(window)
     ui.start()
-    
     window.mainloop()
 
     BOARD = BoardGenerator(ui.level[0], ui.level[1], ui.level[2])

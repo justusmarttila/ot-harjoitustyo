@@ -28,7 +28,7 @@ class UserRepository:
 
         return get_user_by_row(row)
 
-    def create(self, user):
+    def register(self, user):
         db = self._connection.cursor()
         db.execute("insert into users (username, password) values (?, ?)",
         (user.username, user.password))

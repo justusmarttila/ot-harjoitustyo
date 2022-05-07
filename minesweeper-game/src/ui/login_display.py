@@ -1,4 +1,5 @@
 from tkinter import ttk, StringVar, constants
+from services.UI_service import UIService, InvalidUsernameOrPasswordError
 
 class LoginDisplay:
 
@@ -32,7 +33,11 @@ class LoginDisplay:
         username = self._username_input.get()
         password = self._password_input.get()
 
-        self._handle_login()
+        try:
+            UIService.login(self, username, password)
+            self._handle_login()
+        except InvalidUsernameOrPasswordError:
+            self._display_error("Invalid username or password, try again")
 
 
     def _initialize_username_slot(self):
