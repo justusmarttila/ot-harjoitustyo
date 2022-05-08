@@ -3,7 +3,7 @@
 Sovelluksen tarkoitus on kehittää käyttäjän matemaattista hahmotuskykyä ja tuottaa mielihyvää pelaamalla Miinaharavaa.
 Monet ovat kertoneet, että pelit ovat auttaneet rentoutumaan ja ottamaan ajatukset irti stressaavasta arjesta.
 ## Käyttäjät
-Yksi käyttäjä, lisäksi tulokset tallennetaan highscore tauluun, joten pelin voi viedä webiin ja käyttäjät voivat kilpailla toisiaan vastaan.
+Käyttäjä voi kirjautua eri käyttäjille ja pelata peliä.
 ## Toiminnallisuudet
 ### Ennen kirjautumista
 * Käyttäjät voi luoda tunnuksen (tehty)
