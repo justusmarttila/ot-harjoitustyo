@@ -1,5 +1,5 @@
 from tkinter import ttk, StringVar, constants
-from services.UI_service import UIService, UsernameAlreadyExistsError
+from services.UI_service import UI_service, UsernameAlreadyExistsError
 
 class RegisterUserDispay:
 
@@ -36,11 +36,11 @@ class RegisterUserDispay:
         if len(password) == 0 or len(username) == 0:
             self._display_error("Username and password is required")
             return
-        elif len(username) <= 3:
+        if len(username) < 3:
             self._display_error("Username must be atleast 3 characters")
 
         try:
-            UIService.register_user(username, password)
+            UI_service.register_user(username, password)
             self._handle_register_user()
         except UsernameAlreadyExistsError:
             self._display_error("This username already exists, try again")
@@ -65,6 +65,9 @@ class RegisterUserDispay:
         self._error_label = ttk.Label(master=self._frame, textvariable=self._error_variable, foreground="red")
 
         self._error_label.grid(padx=10, pady=10)
+
+        display_label = ttk.Label(master=self._frame, text="Register account")
+        display_label.grid(padx=5, pady=5, sticky=constants.W)
 
         self._initialize_username_slot()
         self._initialize_password_slot()

@@ -46,10 +46,14 @@ class UI:
     def _show_select_level_display(self):
         self._hide_current_display()
         
-        self._current_display = SelectLevelDisplay(self._root, self._return_level, self._show_login_display)
+        self._current_display = SelectLevelDisplay(
+            self._root,
+            self._return_level,
+            self._show_login_display)
 
         self._current_display.pack()
 
     def _return_level(self, level):
         self.level = level
         self._root.destroy()
+        

@@ -40,7 +40,7 @@ class UIService:
         already_existing = self._user_repo.fetch_by_username(username)
 
         if already_existing:
-            raise UsernameAlreadyExistsError("This username already exists, try again")§
+            raise UsernameAlreadyExistsError("This username already exists, try again")
 
         user = self._user_repo.register(User(username, password))
 

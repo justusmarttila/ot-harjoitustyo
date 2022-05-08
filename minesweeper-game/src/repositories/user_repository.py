@@ -22,7 +22,7 @@ class UserRepository:
 
     def fetch_by_username(self, username):
         db = self._connection.cursor()
-        db.execute("select * from users where username=?", (username))
+        db.execute("select * from users where username = ?", (username,))
 
         row = db.fetchone()
 
