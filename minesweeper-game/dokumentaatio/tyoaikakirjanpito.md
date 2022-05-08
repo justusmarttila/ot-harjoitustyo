@@ -13,4 +13,6 @@ päivä | aika | mitä tein
 25.4. | 2 | avaamattomien miinojen seuraaminen
 26.4. | 2 | linttausta
 3.5. | 9 | kello oikeaan ylänurkkaan ja ui:n aloittaminen
-yht | 38 | 
+7.5. | 2 | UI bug fixailua
+8.5. | 2 | UI toimii halutulla tavalla
+yht | 42 | 
