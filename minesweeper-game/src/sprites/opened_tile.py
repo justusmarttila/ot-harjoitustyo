@@ -14,9 +14,10 @@ class OpenedTile(pygame.sprite.Sprite):
         Args:
             x_coord (int): Laatan x-koordinaatti laudalla. Defaults to 0.
             y_coord (int): Laatan y-koordinaatti laudalla. Defaults to 0.
-            number (int): Numero kertoo montako miinaa sen ympärillä olevissa 8 ruudussa on. (-1 tarkoittaa miinaa). Defaults to 0.
+            number (int): Numero kertoo montako miinaa sen ympärillä olevissa 8 ruudussa on.
+            (-1 tarkoittaa miinaa). Defaults to 0.
         """
-        
+
         super().__init__()
 
         self.number = number

@@ -46,7 +46,8 @@ class UnopenedTile(pygame.sprite.Sprite):
         """Funktio, jonka avulla alustetaan sanakirja tarvittavista kuvista
 
         Returns:
-            dict: sanakirja, joka sisältää kuvat avaamattomasta, merkatusta sekä läpinäkyvästä laatasta
+            dict: sanakirja, joka sisältää kuvat avaamattomasta,
+            merkatusta sekä läpinäkyvästä laatasta
         """
 
         pictures = {"unopened": image_load("unopened_tile.png"),

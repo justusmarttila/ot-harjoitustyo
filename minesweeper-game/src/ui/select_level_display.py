@@ -1,8 +1,17 @@
 from tkinter import ttk, constants
 
 class SelectLevelDisplay:
+    """Luokka, joka vastaa tasovalintaikkunasta.
+    """
 
     def __init__(self, root, handle_selection, handle_logout):
+        """Konstruktori, joka luo uuden tasovalintaikkunan.
+
+        Args:
+            root (TKinter-elementti): Pääikkuna, minne näkymä luodaan.
+            handle_selection (function): Kutsuttava, kun valitaan taso.
+            handle_logout (_type_): Kutsuttava, kun valitaan logout nappi.
+        """
 
         self._root = root
         self._handle_logout = handle_logout
@@ -12,9 +21,13 @@ class SelectLevelDisplay:
         self._init()
 
     def pack(self):
+        """Ikkunan näkymän näyttäminen."""
+
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Sulkee ikkunan näkymän."""
+
         self._frame.destroy()
 
     def _beginner_button_handler(self):
@@ -27,6 +40,8 @@ class SelectLevelDisplay:
         self._handle_selection((30, 16, 99))
 
     def _init(self):
+        """Alusta tasovalintaikkuna"""
+
         self._frame = ttk.Frame(master=self._root)
 
         beginner_button = ttk.Button(

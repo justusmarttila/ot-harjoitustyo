@@ -1,6 +1,10 @@
 from connect_database import get_database_connection
 
 def drop_tables(connection):
+    """Funktio, joka poistaa tietokantataulun,
+    jos sellainen on olemassa.
+    """
+
     db = connection.cursor()
 
     db.execute("""
@@ -9,6 +13,9 @@ def drop_tables(connection):
     connection.commit()
 
 def create_tables(connection):
+    """Luo tarvittavat tietokanta taulut sovellukselle.
+    """
+
     db = connection.cursor()
 
     db.execute("""
@@ -21,6 +28,9 @@ def create_tables(connection):
     connection.commit()
 
 def init_database():
+    """Funktio, joka alustaa tietokannan
+    ensin tyhjentämällä sen ja sitten luomalla tarvittavat taulut.
+    """
 
     connection = get_database_connection()
 

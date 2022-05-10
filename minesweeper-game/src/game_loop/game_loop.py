@@ -4,10 +4,12 @@ class GameLoop:
     """Luokka, joka toimii pelin pääsilmukkana eli käsittelee tapahtumat.
 
     Attributes:
-        board: Board-olio, joka kuvaa pelilautaa eli kuinka monta miinaa laudalla on ja niiden sijaintia sekä avattuja, avaamattomia sekä merkattuja laattoja.
+        board: Board-olio, joka kuvaa pelilautaa eli kuinka monta miinaa laudalla on
+        ja niiden sijaintia sekä avattuja, avaamattomia sekä merkattuja laattoja.
         clock: Clock-olio, joka toimii fps:n asettamisen työkaluna.
         tile_size: Integer-arvo, jonka avulla määritellään minkä kokoinen pelilauta piirretään.
-        renderer: Renderer-olio, joka vastaa kaikesta pelissä tapahtuvasta renderöimisestä eli asioiden piirtämisestä peli-ikkunaan.
+        renderer: Renderer-olio, joka vastaa kaikesta pelissä tapahtuvasta renderöimisestä
+        eli asioiden piirtämisestä peli-ikkunaan.
         event_queue: EventQueue-olio, joka helpottaa pelitapahtumien läpikäymistä.
     """
 
@@ -15,10 +17,12 @@ class GameLoop:
         """Konstruktori, joka luo uuden pelisilmukan.
 
         Args:
-            board: Board-olio, joka kuvaa pelilautaa eli kuinka monta miinaa laudalla on ja niiden sijaintia sekä avattuja, avaamattomia sekä merkattuja laattoja.
+            board: Board-olio, joka kuvaa pelilautaa eli kuinka monta miinaa laudalla on
+            ja niiden sijaintia sekä avattuja, avaamattomia sekä merkattuja laattoja.
             clock: Clock-olio, joka toimii fps:n asettamisen työkaluna.
             tile_size: Integer-arvo, jonka avulla määritellään minkä kokoinen pelilauta piirretään.
-            renderer: Renderer-olio, joka vastaa kaikesta pelissä tapahtuvasta renderöimisestä eli asioiden piirtämisestä peli-ikkunaan.
+            renderer: Renderer-olio, joka vastaa kaikesta pelissä tapahtuvasta renderöimisestä
+            eli asioiden piirtämisestä peli-ikkunaan.
             event_queue: EventQueue-olio, joka helpottaa pelitapahtumien läpikäymistä.
         """
 
@@ -53,18 +57,19 @@ class GameLoop:
             self._clock.tick(60)
 
     def _traverse_events(self):
-        """Pelitapahtumien läpikäyminen, kuten hiiren 1 painikkeella laatan avaaminen sekä hiiren 2 painikkeella laatan merkkaaminen.
+        """Pelitapahtumien läpikäyminen, kuten hiiren 1 painikkeella laatan avaaminen
+        sekä hiiren 2 painikkeella laatan merkkaaminen.
 
         Returns:
-            Boolean: Kun peli suljetaan ruksista palautetaan pääsilmukalle False ja ikkuna suljetaan.
+            Boolean: Suljettaessa peli ruksista palautetaan pääsilmukalle False ja ikkuna suljetaan.
         """
 
         for event in self._event_queue.get():
             if event.type == pygame.MOUSEBUTTONUP:
-                
+
                 # klikkauksen koordinaatit
                 mouse_x, mouse_y = event.pos[0], event.pos[1]
-                
+
                 # laatan avaaminen
                 if event.button == 1:
                     self._board.open_tile(mouse_x, mouse_y)
@@ -76,7 +81,7 @@ class GameLoop:
             # ikkunan sulkeminen
             elif event.type == pygame.QUIT:
                 return False
-    
+
     def _render(self):
         """kutsutaan Renderer olion render metodia ja piirretään näyttö.
         """

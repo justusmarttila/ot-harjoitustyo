@@ -1,3 +1,4 @@
+from tkinter import Tk
 import pygame
 from board import Board
 from game_loop.game_loop import GameLoop
@@ -5,29 +6,27 @@ from game_loop.event_queue import EventQueue
 from game_loop.clock import Clock
 from game_loop.renderer import Renderer
 from board_generator import BoardGenerator
-
-from tkinter import Tk
 from ui.ui import UI
 
 def main():
+    """Funktio, joka vastaa käyttöliittymän sekä pelin käynnistyksestä
+    """
 
     window = Tk()
     window.title("Minesweeper")
 
-    ui = UI(window)
-    ui.start()
+    main_ui = UI(window)
+    main_ui.start()
     window.mainloop()
 
-    BOARD = BoardGenerator(ui.level[0], ui.level[1], ui.level[2])
-    LOWER_BOARD_1 = BOARD.generate()
-    TOP_BOARD_1 = BOARD.top_board
-    TILE_SIZE = 50
+    main_board = BoardGenerator(main_ui.level[0], main_ui.level[1], main_ui.level[2])
+    lower_board = main_board.generate()
+    top_board = main_board.top_board
+    tile_size = 50
 
     # asetetaan laudan koko
-    width = len(LOWER_BOARD_1[0])
-    height = len(LOWER_BOARD_1)
-    scaled_width = width*TILE_SIZE
-    scaled_height = height*TILE_SIZE
+    scaled_width = len(lower_board[0])*tile_size
+    scaled_height = len(lower_board)*tile_size
 
     # ikkunan alustus
     display = pygame.display.set_mode((scaled_width, scaled_height+100))
@@ -36,11 +35,11 @@ def main():
     pygame.display.set_caption("Minesweeper")
 
     # alustetaan lauta, tapahtumajono, renderöijä, kello sekä peliloop
-    board = Board(LOWER_BOARD_1, TOP_BOARD_1, TILE_SIZE)
+    main_board = Board(lower_board, top_board, tile_size)
     event_queue = EventQueue()
-    renderer = Renderer(display, board)
+    renderer = Renderer(display, main_board)
     clock = Clock()
-    game_loop = GameLoop(board, TILE_SIZE, renderer, clock, event_queue)
+    game_loop = GameLoop(main_board, tile_size, renderer, clock, event_queue)
 
     # pygamen moduulien alustus
     pygame.init()
