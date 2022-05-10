@@ -15,4 +15,5 @@ päivä | aika | mitä tein
 3.5. | 9 | kello oikeaan ylänurkkaan ja ui:n aloittaminen
 7.5. | 2 | UI bug fixailua
 8.5. | 2 | UI toimii halutulla tavalla
-yht | 42 | 
+10.5. | 2 | Doctringausta
+yht | 44 | 

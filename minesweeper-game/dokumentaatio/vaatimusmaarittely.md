@@ -7,7 +7,7 @@ Käyttäjä voi kirjautua eri käyttäjille ja pelata peliä.
 ## Toiminnallisuudet
 ### Ennen kirjautumista
 * Käyttäjät voi luoda tunnuksen (tehty)
-    * Käyttäjätunnuksen tulee olla uniikki (tehty)
+    * Käyttäjätunnuksen tulee olla uniikki ja vähintään 3 merkkiä. (tehty)
 * Tunnuksien avulla voidaan kirjuatua (tehty)
 ### Kirjautumisen jälkeen
 * Käyttäjä valitsee joko beginner, intermediate, expert tai päättää itse ruudukon koon ja miinojen määrän (tehty)
