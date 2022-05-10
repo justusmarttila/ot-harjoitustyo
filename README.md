@@ -22,21 +22,24 @@ Paina alussa Login nappia ja sitten valitse vaikeustaso
 ```bash
 poetry install
 ```
-## Komentorivitoiminnot
-
-1. Käynnistä sovellus komennolla
+2. Alusta tietokanta komennolla
+```bash
+poetry run invoke build
+```
+3 Käynnistä sovellus komennolla
 ```bash
 poetry run invoke start
 ```
-2. Testit suoritetaan komennolla:
+## Komentorivitoiminnot
+1 Testit suoritetaan komennolla:
 ```bash
 poetry run invoke test
 ```
-3. Testikattavuusraportti generoidaan komennolla
+2 Testikattavuusraportti generoidaan komennolla
 ```bash
 poetry run invoke coverage-report
 ```
-4. Koodin laadun tarkistaminen
+3 Koodin laadun tarkistaminen
 ```bash
 poetry run invoke lint
 ```

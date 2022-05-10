@@ -32,3 +32,7 @@
 - oikeassa ylänurkassa näkyy peliin kulunut aika
 - dosctringausta melko paljon
 - uille testo kun valitsee beginner
+
+## Viikko 7
+
+- Käyttöliittymä toimii halutulla tavalla eli pystyy luomaan käyttäjän ja kirjautumaan käyttäjälle
