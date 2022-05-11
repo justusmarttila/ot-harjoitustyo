@@ -16,5 +16,5 @@ päivä | aika | mitä tein
 7.5. | 2 | UI bug fixailua
 8.5. | 2 | UI toimii halutulla tavalla
 10.5. | 2 | Doctringausta
-11.5. | 3 | Gameloopin testaus ja projektin viimeistely
-yht | 47 | 
+11.5. | 4 | Gameloopin testaus ja projektin viimeistely
+yht | 48 | 
