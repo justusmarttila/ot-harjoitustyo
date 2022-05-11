@@ -11,7 +11,7 @@ class Renderer:
     """
 
     def __init__(self, display, board):
-        """_summary_
+        """Konstruktori, joka luo uuden Rendeder-olion.
 
         Args:
             display (Pygame.Surface): Pelinäyttö, jolle asiat piirretään.
@@ -25,12 +25,13 @@ class Renderer:
         self._board = board
         self._mines_left = 0
         self._font = font_load("digital-7.ttf")
+        self._end_font = pygame.font.SysFont("comicsansms", 50)
         self._time = time.time()
         self._seconds = 0
+        self.game_ended = -1 # 1 peli voitettu, 0 peli hävitty
 
     def render(self):
-        """Objektien piirtäminen näytölle
-        """
+        """Objektien piirtäminen näytölle"""
 
         # jäljellä olevien miinojen esittäminen vasemmassa ylänurkassa
         self._mines_left = len(self._board.mines)-len(self._board.marked)
@@ -49,5 +50,25 @@ class Renderer:
         ((len(self._board.top_map[0])*self._board.tile_size)-155, 10))
 
         self._board.all_sprites.draw(self._display)
+
+
+        if self.game_ended == 0:
+            self._display.blit(
+                self._end_font.render(
+                "HÄVISIT PELIN",
+                True,
+                (255, 0, 0)),
+                ((len(self._board.top_map[0])*self._board.tile_size)/2-200,
+                len(self._board.top_map)*self._board.tile_size/2)
+            )
+        elif self.game_ended == 1:
+            self._display.blit(
+                self._font.render(
+                "VOITIT PELIN",
+                True,
+                (255, 0, 0)),
+                ((len(self._board.top_map[0])*self._board.tile_size)/2-200,
+                len(self._board.top_map)*self._board.tile_size/2)
+            )
 
         pygame.display.update()

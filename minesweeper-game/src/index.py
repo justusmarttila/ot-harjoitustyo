@@ -21,7 +21,7 @@ def main():
 
     main_board = BoardGenerator(main_ui.level[0], main_ui.level[1], main_ui.level[2])
     lower_board = main_board.generate()
-    top_board = main_board.top_board
+    top_board = main_board.top_board    
     tile_size = 50
 
     # asetetaan laudan koko

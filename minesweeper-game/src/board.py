@@ -172,7 +172,8 @@ class Board:
             self._dfs_open_nearby(mouse_x+self.tile_size, mouse_y+self.tile_size)
 
     def is_completed(self):
-        """Funktio, joka tarkistaa onko kaikki miinat merkattu ja että onko kaikki ei-miina laatat avattu.
+        """Funktio, joka tarkistaa onko kaikki miinat merkattu
+        ja että onko kaikki ei-miina laatat avattu.
 
         Returns:
             Bool: Palauttaa True, jos peli on läpäisty eli kaikki ei-miinat on avattu, muuten False.
@@ -197,7 +198,7 @@ class Board:
     def _all_number_tiles_opened(self):
         """Funktio, joka tarkistaa, että kaikki numerolaatat eli ei-miinat on avattu.
 
-        Returns:    
+        Returns:
             Bool: Palauttaa False, jos jokin numerolaatoista on avaamatta, muuten True.
         """
 
@@ -223,7 +224,7 @@ class Board:
         Alempaan matriisiin kuuluu miinat, numerot sekä tyhjät avatut laatat.
 
         Args:
-            lower_map (list): Matriisi, joka kertoo alemman laudan rakenteen. 
+            lower_map (list): Matriisi, joka kertoo alemman laudan rakenteen.
             -1 tarkoittaa miinaa, muuten numero kertoo montako miinaa sen ympärillä on.
         """
 
@@ -283,7 +284,8 @@ class Board:
                             self.eights, self.mines, self.unopened, self.marked)
 
     def _add_all_numbers(self):
-        """Funktio, joka lisää kaikki ei-miinat joukkoon peliobjekteja, jotta voidaan tarkistaa onko peli läpäisty.
+        """Funktio, joka lisää kaikki ei-miinat joukkoon peliobjekteja,
+        jotta voidaan tarkistaa onko peli läpäisty.
         """
 
         self.all_number_sprites.add(self.zeroes, self.ones, self.twos,
@@ -294,7 +296,7 @@ class Board:
         """Funktio, joka lisää kaikki numerot eli ei miinoja eikä nollia peliobjektien listaan,
         jotta _dfs_open_nearby() algoritmi pystyy toteuttamaan rekursion okein
         """
-        
+
         self.numbers_no_zeroes.add(self.ones, self.twos, self.threes,
                                    self.fours, self.fives, self.sixes,
                                    self.sevens, self.eights)

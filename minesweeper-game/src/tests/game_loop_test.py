@@ -1,13 +1,12 @@
-"""import pygame
+import pygame
 import unittest
-
 from board import Board
-from game_loop import GameLoop
+from game_loop.game_loop import GameLoop
 
 class StubClock:
     def tick(self, fps):
         pass
-
+    
     def get_ticks(self):
         0
 
@@ -42,12 +41,19 @@ class TestGameLoop(unittest.TestCase):
         self.board_1 = Board(LOWER_BOARD_1, TOP_BOARD_1, TILE_SIZE)
 
     def test_mine_opened(self):
-        events = [StubEvent(pygame.MOUSEBUTTONUP, 1, 75, 25)]
-
-        game_loop = GameLoop(self.board_1, StubRenderer(), StubEventQueue(events), StubClock(), TILE_SIZE)
-
+        events = [StubEvent(pygame.MOUSEBUTTONUP, 1, 75, 125)]
+        game_loop = GameLoop(self.board_1, TILE_SIZE, StubRenderer(), StubClock(), StubEventQueue(events))
         game_loop.start()
-
         self.assertTrue(self.board_1.mine_opened())
 
-    def test_clock(self):"""
+    def test_board_completed(self):
+        events = [
+            StubEvent(pygame.MOUSEBUTTONUP, 1, 14, 226),
+            StubEvent(pygame.MOUSEBUTTONUP, 1, 223, 126),
+            StubEvent(pygame.MOUSEBUTTONUP, 1, 124, 214),
+            StubEvent(pygame.MOUSEBUTTONUP, 1, 125, 113),
+            StubEvent(pygame.MOUSEBUTTONUP, 1, 11, 113)
+        ]
+        game_loop = GameLoop(self.board_1, TILE_SIZE, StubRenderer(), StubClock(), StubEventQueue(events))
+        game_loop.start()
+        self.assertTrue(self.board_1.is_completed())

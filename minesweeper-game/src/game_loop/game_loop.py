@@ -31,6 +31,7 @@ class GameLoop:
         self._tile_size = tile_size
         self._renderer = renderer
         self._event_queue = event_queue
+        self._game_over = False
 
     def start(self):
         """Aloittaa pelin pääsilmukan, tarkistaa onko painettu ruksia,
@@ -45,14 +46,19 @@ class GameLoop:
             # kutsutaan renderer
             self._render()
 
+            if self._game_over:
+                pygame.time.wait(500)
+                break
+
             # onko miina avattu
             if self._board.mine_opened():
-                break
+                self._renderer.game_ended = 0
+                self._game_over = True
 
             # onko peli läpäisty
             if self._board.is_completed():
-                break
-
+                self._renderer.game_ended = 1
+                self._game_over = True
             # asetetaan fps 60
             self._clock.tick(60)
 
