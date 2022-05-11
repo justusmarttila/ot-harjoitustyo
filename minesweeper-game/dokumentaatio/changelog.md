@@ -31,8 +31,12 @@
 - siirtymiset login näytön ja tason valitsemisen kanssa toimii
 - oikeassa ylänurkassa näkyy peliin kulunut aika
 - dosctringausta melko paljon
-- uille testo kun valitsee beginner
+- ui:lle testi kun valitsee beginner
 
 ## Viikko 7
 
 - Käyttöliittymä toimii halutulla tavalla eli pystyy luomaan käyttäjän ja kirjautumaan käyttäjälle
+- Docstringaus valmis
+- Gameloopin testaus valmis 
+- user repon testaus valmis
+- ui:n testaus jätetty testien ulkopuolelle
