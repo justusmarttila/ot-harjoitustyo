@@ -2,7 +2,12 @@
 
 ## Käyttöohje
 
-Paina alussa Login nappia ja sitten valitse vaikeustaso
+Aluksi on login näkymä, josta pääsee kirjautumaan jos on jo käyttäjä, muuten valitse register, jolloin pääsee rekisteröimään uuden käyttäjän.
+Tämän jälkeen valitse vaikeustaso ja pääset pelaamaan.
+Paina hiiren 1-painiketta (mouse 1) avataksesi laatan tai paina hiiren 2-painiketta merkataksesti miina. Avatun laatan numero kertoo montako miinaa sen ympärillä on.
+Vasemmassa ylänurkassa lukee montako miinaa on vielä merkkaamatta eli löytämättä.
+Oikeassa ylänurkassa lukee peliisi kulunut aika sekunteina.
+Voitat pelin avaamalla kaikki ei-miinat. (Ei ole pakko merkata kaikkia miinoja.
 
 ## Dokumentaatio
 
