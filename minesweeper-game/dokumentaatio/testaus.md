@@ -9,3 +9,4 @@ Pelisilmukkaa testaan TestGameLoop-luokassa StubEventeillä [TestGameLoop](https
 User repositorya testataan TestUserRepository-luokassa [TestUserRepository](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/minesweeper-game/src/tests/user_repository_test.py)
 ### Testikattavuus
 Testikattavuuden ulkopuolelle on jätetty ui-tiedoston sisältö ja ilman sitä kattavuus on
+![](./kuvat/coverage-report.png)
