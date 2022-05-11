@@ -47,7 +47,7 @@ class GameLoop:
             self._render()
 
             if self._game_over:
-                pygame.time.wait(500)
+                pygame.time.wait(2000)
                 break
 
             # onko miina avattu
