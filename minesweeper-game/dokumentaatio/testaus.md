@@ -8,5 +8,7 @@ Pelisilmukkaa testaan TestGameLoop-luokassa StubEventeillä [TestGameLoop](https
 ### Repositorio-luokka
 User repositorya testataan TestUserRepository-luokassa [TestUserRepository](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/minesweeper-game/src/tests/user_repository_test.py)
 ### Testikattavuus
-Testikattavuuden ulkopuolelle on jätetty ui-tiedoston sisältö ja ilman sitä kattavuus on
+Testikattavuuden ulkopuolelle on jätetty ui-tiedoston sisältö ja ilman sitä kattavuus on 76%
 ![](./kuvat/coverage-report.png)
+### Toiminallisuus
+Kaikki [vaatimusmäärittelydokumentin](https://github.com/justusmarttila/ot-harjoitustyo/blob/master/minesweeper-game/dokumentaatio/vaatimusmaarittely.md) toiminnallisuudet käyty läpi.
